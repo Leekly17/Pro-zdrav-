@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Textové dokumenty – herní retro</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; font-family:'Press Start 2P', monospace; }
+
+body {
+    background: linear-gradient(to bottom, #2f3b2f, #1e261e);
+    color:#d0d0d0;
+    padding:20px;
+}
+
+header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+header h1 {
+    font-size:1.6rem;
+    color:#9cff57;
+}
+
+.search-box input {
+    padding:8px;
+    background:#111;
+    color:#9cff57;
+    border:2px solid #4a5;
+    width:220px;
+    font-family:inherit;
+}
+
+main { display:flex; flex-direction:column; gap:18px; }
+
+.presentation-row {
+    background:#3a3a3a;
+    border:2px solid #777;
+    padding:14px;
+    cursor:pointer;
+    transition:background 0.2s;
+}
+
+.presentation-row:hover {
+    background:#4a4a4a;
+}
+
+.presentation-title {
+    font-size:0.9rem;
+}
+
+.modal {
+    position:fixed;
+    top:20px;
+    left:0;
+    width:100%;
+    display:none;
+    justify-content:center;
+}
+
+.modal-content {
+    background:#2a2a2a;
+    color:#9cff57;
+    border:3px solid #777;
+    padding:16px;
+    width:340px;
+    text-align:center;
+}
+
+.modal-buttons {
+    display:flex;
+    justify-content:space-between;
+    margin-top:14px;
+}
+
+button {
+    padding:8px 12px;
+    background:#111;
+    color:#9cff57;
+    border:2px solid #4a5;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+button:hover {
+    background:#222;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>GAME FILES</h1>
+<div class="search-box">
+<input id="searchInput" placeholder="SEARCH...">
+</div>
+</header>
+
+<main>
+<div class="presentation-row" data-title="Běh" data-url="beh.docx"><span class="presentation-title">BĚH</span></div>
+<div class="presentation-row" data-title="Jídlo" data-url="jidlo.docx"><span class="presentation-title">JÍDLO</span></div>
+<div class="presentation-row" data-title="Psychika" data-url="psychika.docx"><span class="presentation-title">PSYCHIKA</span></div>
+<div class="presentation-row" data-title="Dieta" data-url="dieta.docx"><span class="presentation-title">DIETA</span></div>
+</main>
+
+<div id="presentationModal" class="modal">
+<div class="modal-content">
+<p>FILE:</p>
+<h2 id="modalTitle"></h2>
+<div class="modal-buttons">
+<button onclick="closeModal()">CANCEL</button>
+<button onclick="viewPresentation()">OPEN</button>
+</div>
+</div>
+</div>
+
+<script>
+const modal = document.getElementById("presentationModal");
+const modalTitle = document.getElementById("modalTitle");
+let selectedURL = "";
+
+document.querySelectorAll(".presentation-row").forEach(row=>{
+    row.onclick=()=>{
+        modalTitle.textContent=row.dataset.title;
+        selectedURL=row.dataset.url;
+        modal.style.display="flex";
+    }
+});
+
+function closeModal(){ modal.style.display="none"; }
+function viewPresentation(){
+    if(selectedURL) window.open(selectedURL,"_blank");
+    closeModal();
+}
+
+const searchInput=document.getElementById("searchInput");
+const rows=document.querySelectorAll(".presentation-row");
+
+function normalize(t){
+    return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+
+searchInput.addEventListener("input",()=>{
+    const v=normalize(searchInput.value);
+    rows.forEach(r=>{
+        const t=normalize(r.dataset.title);
+        r.style.display=v===""||t.startsWith(v)?"block":"none";
+    });
+});
+</script>
+
+</body>
+</html>

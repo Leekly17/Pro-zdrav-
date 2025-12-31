@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Materiály – Potraviny</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #fff9e6, #ffe0b3);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ffcc80;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #6d4c41;
+        }
+
+        main {
+            flex: 1; /* hlavní obsah vyplní zbytek výšky */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            background-color: #fff3e0;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            max-width: 800px;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .material-btn {
+            background-color: #ffb74d;
+            color: #4e342e;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 20px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .material-btn:hover {
+            background-color: #ffa726;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffb74d;
+            color: #4e342e;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .buttons-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .material-btn {
+                width: 80%;
+                font-size: 1.1rem;
+                padding: 18px 0;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Materiály o potravinách</h1>
+</header>
+
+<main>
+    <div class="intro-text">
+        Na této stránce najdete všechny materiály související s potravinami, zdravou výživou a stravovacími návyky. Materiály jsou rozděleny do tří hlavních kategorií: <strong>Prezentace</strong> – vizuální soubory, které přehledně shrnují klíčová témata o potravinách a jejich účincích; <strong>Textové dokumenty</strong> – články, studie a návody, které lze číst online nebo stáhnout; a <strong>Videa</strong> – instruktážní a edukační videa, která názorně ukazují, jak připravovat zdravé pokrmy a jak se orientovat v potravinách. Stránka je přehledná, barevná a uživatelsky přívětivá, takže snadno najdete potřebný obsah.
+    </div>
+
+</main>
+
+<footer>
+    &copy; 2025 Prevence zdraví | <a href="uvodni.html" style="color:#4e342e; text-decoration:underline;">Domů</a>
+</footer>
+
+</body>
+</html>
+

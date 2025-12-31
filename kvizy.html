@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Kvízy – quiz verze</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; font-family:'Poppins', sans-serif; }
+
+body {
+    background: linear-gradient(to bottom, #1e88e5, #0d47a1);
+    color:white;
+    padding:20px;
+}
+
+header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+header h1 {
+    font-size:2.4rem;
+    color:#ffeb3b;
+}
+
+.search-box input {
+    padding:8px 12px;
+    border-radius:10px;
+    border:none;
+    width:220px;
+}
+
+main { display:flex; flex-direction:column; gap:20px; }
+
+.presentation-row {
+    background:#ffffff;
+    color:#0d47a1;
+    padding:16px 20px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:transform 0.2s, background 0.2s;
+}
+
+.presentation-row:hover {
+    background:#ffeb3b;
+    transform:scale(1.02);
+}
+
+.presentation-title {
+    font-size:1.3rem;
+    font-weight:700;
+}
+
+.modal {
+    position:fixed;
+    top:20px;
+    left:0;
+    width:100%;
+    display:none;
+    justify-content:center;
+}
+
+.modal-content {
+    background:white;
+    color:#0d47a1;
+    padding:18px;
+    width:340px;
+    border-radius:14px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.modal-buttons {
+    display:flex;
+    justify-content:space-between;
+    margin-top:16px;
+}
+
+button {
+    padding:10px 16px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.close-btn { background:#e53935; color:white; }
+.view-btn { background:#43a047; color:white; }
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>KVÍZY</h1>
+<div class="search-box">
+<input id="searchInput" placeholder="Hledat kvíz...">
+</div>
+</header>
+
+<main>
+<div class="presentation-row" data-title="Běh"><span class="presentation-title">Běh – kvíz</span></div>
+<div class="presentation-row" data-title="Jídlo"><span class="presentation-title">Jídlo – kvíz</span></div>
+<div class="presentation-row" data-title="Psychika"><span class="presentation-title">Psychika – kvíz</span></div>
+<div class="presentation-row" data-title="Dieta"><span class="presentation-title">Dieta – kvíz</span></div>
+</main>
+
+<div id="presentationModal" class="modal">
+<div class="modal-content">
+<p>Vybraný kvíz:</p>
+<h2 id="modalTitle"></h2>
+<div class="modal-buttons">
+<button class="close-btn" onclick="closeModal()">Zrušit</button>
+<button class="view-btn" onclick="viewPresentation()">Spustit</button>
+</div>
+</div>
+</div>
+
+<script>
+const modal=document.getElementById("presentationModal");
+const modalTitle=document.getElementById("modalTitle");
+
+document.querySelectorAll(".presentation-row").forEach(row=>{
+    row.onclick=()=>{
+        modalTitle.textContent=row.dataset.title;
+        modal.style.display="flex";
+    };
+});
+
+function closeModal(){ modal.style.display="none"; }
+function viewPresentation(){ closeModal(); }
+
+const searchInput=document.getElementById("searchInput");
+const rows=document.querySelectorAll(".presentation-row");
+
+function normalize(t){
+    return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+
+searchInput.addEventListener("input",()=>{
+    const v=normalize(searchInput.value);
+    rows.forEach(r=>{
+        const t=normalize(r.dataset.title);
+        r.style.display=v===""||t.startsWith(v)?"block":"none";
+    });
+});
+</script>
+
+</body>
+</html>

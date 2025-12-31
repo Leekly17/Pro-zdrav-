@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Informační stránka – Prevence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset a základní styl */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #fffbe6, #ffffff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 30px 20px;
+            background-color: #ff9800;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Pixelart animace */
+        .pixelart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            z-index: 1;
+            position: relative;
+        }
+
+        header hr {
+            width: 100px;
+            border: 2px solid #ffffff;
+            margin: 0 auto;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 1000px;
+            background-color: #ffe0b2;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .highlight {
+            color: #d84315;
+            font-weight: 600;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .green-btn {
+            display: inline-block;
+            width: 220px;
+            padding: 20px 0;
+            background-color: #ffb74d;
+            color: #4e342e;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .green-btn::after {
+            content: "✨";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 1rem;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.3); }
+        }
+
+        .green-btn:hover {
+            background-color: #ffa726;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff9800;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .button-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .green-btn {
+                width: 80%;
+                font-size: 1.1rem;
+                padding: 18px 0;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+            }
+
+            .pixelart { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Informační stránka – Prevence</h1>
+</header>
+
+
+<main>
+    <div class="intro-text">
+        Tato stránka vznikla jako součást <span class="highlight">pololetního projektu do informatiky</span> s cílem informovat širokou veřejnost o významu prevence a možnostech, jak jí efektivně předcházet. Cílem projektu je poskytnout uživatelům přehledné informace o různých typech prevence – od zdravého životního stylu, správného stravování a pravidelného pohybu, až po psychickou pohodu a prevenci stresu. Stránka nabízí srozumitelný text, vizuálně atraktivní pixelart ilustrace a interaktivní prvky, které uživatele motivují k prozkoumání jednotlivých témat.  
+
+        Projekt se snaží vzdělávat nejen studenty, ale i širší veřejnost, ukázat jednoduché a praktické způsoby, jak posilovat imunitu, zlepšovat fyzickou kondici a pečovat o mentální zdraví. Stránka je rozdělena do logických sekcí, které návštěvníkům umožňují snadno najít relevantní informace a tipy, například vhodné cvičební rutiny, doporučené potraviny, relaxační techniky či metody prevence běžných onemocnění.  
+
+        Díky živým pixelart prvkům, hravým animacím a barevné paletě se stránka snaží spojit edukaci se zábavou, aby byla přístupná a přitažlivá pro různé věkové skupiny. Tento projekt je příkladem, jak lze kombinovat informatiku, design a edukační obsah do jednoho uživatelsky přívětivého prostředí, které podporuje aktivní a zdravý životní styl.
+    </div>
+
+
+</main>
+
+<footer>
+    &copy; 2025 Prevence | <a href="uvodni.html" style="color:white; text-decoration:underline;">Domů</a>
+</footer>
+
+</body>
+</html>

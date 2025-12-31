@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiály</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset a základní styl */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #f0f4f8, #ffffff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+            background-color: #e0f0ff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        header hr {
+            width: 80px;
+            border: 2px solid #4da6ff;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        nav {
+            background-color: #ffffff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4da6ff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1a73e8;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .material-btn {
+            background-color: #4da6ff;
+            color: #fff;
+            border: none;
+            padding: 25px 50px;
+            font-size: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .material-btn:hover {
+            background-color: #1a73e8;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-description {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e0f0ff;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Responsivita */
+        @media (max-width: 768px) {
+            .buttons-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .material-btn {
+                width: 80%;
+                font-size: 1.3rem;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Materiály</h1>
+    <hr>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="uvodni.html">Domů</a></li>
+        <li><a href="info.html">Info.</a></li>
+    </ul>
+</nav>
+
+<main>
+    <div class="buttons-container">
+        <div>
+            <button class="material-btn" onclick="window.location.href='prezentace.html'">Prezentace</button>
+            <div class="btn-description">Klikněte pro zobrazení všech prezentací</div>
+        </div>
+
+
+        <div>
+            <button class="material-btn" onclick="window.location.href='textovedokumenty.html'">Textové dokumenty</button>
+            <div class="btn-description">Klikněte pro zobrazení všech textových dokumentů</div>
+        </div>
+
+        <div>
+            <button class="material-btn" onclick="window.location.href='videa.html'">Videa</button>
+            <div class="btn-description">Klikněte pro zobrazení všech videí</div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 Všechny práva vyhrazena | <a href="#">Hlavní stránka</a> | <a href="#">Kontakt</a>
+</footer>
+
+</body>
+</html>
